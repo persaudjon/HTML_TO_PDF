@@ -1,0 +1,24 @@
+import com.pdfcrowd.*;
+import java.io.*;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		FileOutputStream fileOutputStream;
+		//Get user and API Key from pdfCrowd
+		Client client = new Client("USER", "API KEY");
+		try {
+			//Will save PDF image to the project folder
+			fileOutputStream = new FileOutputStream("Test.pdf");
+			client.convertURI("https://stackoverflow.com",
+					fileOutputStream);
+			fileOutputStream.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}
